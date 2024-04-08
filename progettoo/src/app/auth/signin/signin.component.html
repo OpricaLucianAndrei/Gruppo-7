@@ -1,0 +1,19 @@
+<div class="container-fluid d-flex justify-content-center p-5">
+    <div class="row w-25 text-center mt-3">
+        <h1 class="text-white col-12 mx-3">Registrati</h1>
+        <div class="col-12 bg-black m-3 p-5 rounded-4">
+            <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+                <div class="form-group">
+                    <label for="name" class="form-label text-white">Nome completo</label>
+                    <input type="text" id="name" name="name" required class="form-control" ngModel />
+                    <label for="email" class="form-label text-white">Email</label>
+                    <input type="email" id="email" name="email" required class="form-control" ngModel />
+                    <label for="password" class="form-label text-white">Password</label>
+                    <input type="password" id="password" name="password" required class="form-control" ngModel />
+                </div>
+                <button type="submit" [disabled]="signupForm.invalid" class="btn btn-danger text-white mt-4">Signup</button>
+            </form>
+        </div>
+
+    </div>
+</div>
