@@ -5,6 +5,7 @@ import { Login } from 'src/app/models/login';
 import { PostsService } from 'src/app/service/posts.service';
 import { CreatePost } from 'src/app/models/create-post';
 import { UserService } from 'src/app/service/user.service';
+import { ColoService } from 'src/app/service/colo.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,8 +15,9 @@ import { UserService } from 'src/app/service/user.service';
 export class NavbarComponent {
   user: Login | null;
   listUsers: any[] = [];
+  color: string = '#18A1D0';
 
-  constructor(private authSrv: AuthService, private postSrv: PostsService) {
+  constructor(private authSrv: AuthService, private postSrv: PostsService,  private colorSrv: ColoService) {
     this.user = null;
   }
 
@@ -23,6 +25,11 @@ export class NavbarComponent {
     this.authSrv.user$.subscribe((user) => {
       this.user = user;
       console.log(this.user);
+    });
+    this.color = this.colorSrv.getColor();
+    this.colorSrv.color$.subscribe(color => {
+      this.color = color || '#18A1D0';
+      console.log(this.color);
     });
   }
 

@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 import { Login } from 'src/app/models/login';
 import { NgForm } from '@angular/forms';
 import { map } from 'rxjs';
+import { ColoService } from 'src/app/service/colo.service';
 
 @Component({
   selector: 'app-home',
@@ -16,10 +17,17 @@ export class HomeComponent implements OnInit {
   post!: Post;
   user!: Login | null;
   edit: boolean = true;
+  color: string = '#18A1D0';
 
-  constructor(private postSrv: PostsService, private authSrv: AuthService) {}
+
+  constructor(private postSrv: PostsService, private authSrv: AuthService, private colorSrv: ColoService) {}
 
   ngOnInit() {
+    this.color = this.colorSrv.getColor();
+    this.colorSrv.color$.subscribe(color => {
+      this.color = color || '#18A1D0';
+      console.log(this.color);
+    });
     this.getRandomPosts();
     this.getUser();
   }

@@ -37,7 +37,7 @@ const routes: Route[] = [
     NavbarComponent,
     PostComponent,
     SigninComponent,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [BrowserModule, RouterModule.forRoot(routes), HttpClientModule, FormsModule],
   providers: [ 
