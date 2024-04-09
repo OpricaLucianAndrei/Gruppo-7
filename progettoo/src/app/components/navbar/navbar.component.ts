@@ -28,6 +28,10 @@ logout() {
 }
 
 createPost(form: NgForm) {
+  let utentName = this.user?.user.name;
+  let utentId = this.user?.user.id;
+  let utentImg = this.user?.user.authorImg; 
+  let utentBody = form.value
   this.postSrv.postPost(form.value).subscribe()
 }
 
