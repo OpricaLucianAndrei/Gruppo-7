@@ -15,7 +15,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item" *ngIf="user?.user?.admin"> 
+                        <li class="nav-item mx-3" *ngIf="user?.user?.admin"> 
                             <button  *ngIf="user" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getAllUsers()">
                                 Users
                               </button>
@@ -52,8 +52,8 @@
                     <textarea type="text" id="name" name="name" required class="form-control" ngModel> </textarea>
                 </div>
                 <div class="btn-conteiner mt-3 float-start">
-                    <a class="btn-content" href="#">
-                        <span class="btn-title" (click)="createPost(formPost)">Create post</span>
+                    <a class="btn-content" (click)="createPost(formPost)" data-bs-dismiss="#collapseExample"  data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" data-bs-toggle="collapse">
+                        <span class="btn-title"  >Create post</span>
                         <span class="icon-arrow">
                             <svg width="66px" height="53px" viewBox="0 0 66 43" version="1.1"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -80,34 +80,30 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Utenti Registrati</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Elenco Utenti Registrati</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-            <table class="table">
-                <thead >
+        <div class="modal-body d-flex justify-content-center">
+            <table class="styled-table">
+                <thead>
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Name</th>
+                        <th scope="col">Nome</th>
                         <th scope="col">Email</th>
-                        <th scope="col" *ngIf="user?.user?.admin"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let users of listUsers" class="table-dark">
-                        <th scope="row">{{users.id}}</th>
-                        <td>{{users.name}}</td>
-                        <td>{{users.email}}</td>
-                        <button  *ngIf="user?.user?.admin"> cancella </button>
+                    <tr *ngFor="let user of listUsers">
+                        <th>{{user.id}}</th>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
         </div>
       </div>
     </div>
-  </div>
-  
+</div>

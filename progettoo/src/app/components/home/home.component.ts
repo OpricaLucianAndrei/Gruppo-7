@@ -25,14 +25,17 @@ export class HomeComponent implements OnInit {
   }
 
   getRandomPosts() {
-    this.postSrv.getPosts().pipe(
-      map(posts => this.shuffleArray(posts))
-    ).subscribe((randomizedPosts) => {
-      this.posts = randomizedPosts;
-      console.log(this.posts);
-    });
+    this.postSrv
+      .getPosts()
+      .pipe(map((posts) => this.shuffleArray(posts)))
+      .subscribe((randomizedPosts) => {
+        this.posts = randomizedPosts;
+        console.log(this.posts);
+        let spinner = document.getElementById('spin');
+        spinner?.classList.add('d-none')
+            });
   }
-  
+
   shuffleArray(array: any[]) {
     const newArray = array.slice();
     for (let i = newArray.length - 1; i > 0; i--) {
@@ -41,8 +44,6 @@ export class HomeComponent implements OnInit {
     }
     return newArray;
   }
-
-  
 
   getUser() {
     this.authSrv.user$.subscribe((user) => {
@@ -64,21 +65,13 @@ export class HomeComponent implements OnInit {
   }
 
   deletePost(postId: number, idUser: number) {
-    console.log(postId)
-    console.log(this.user?.user.id)
-    if (this.user?.user.id === idUser) {
-    this.postSrv.deletePosts(postId).subscribe((response) => {
-      console.log('Post eliminato con successo', response);
-    });
-    this.getPost();
-  } else {
-    alert('Non puoi eliminare questo post');
+    console.log(postId);
+    console.log(this.user?.user.id);
+    if (this.user?.user.id === idUser || this.user?.user.admin) {
+      this.postSrv.deletePosts(postId).subscribe((response) => {
+        console.log('Post eliminato con successo', response);
+      });
+      this.getRandomPosts();
+    }
   }
-
-}
-getPost() {
-  this.postSrv.getPosts().subscribe((posts) => {
-    this.posts = posts;
-  });
-}
 }

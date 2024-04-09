@@ -31,7 +31,7 @@ export class NavbarComponent {
   }
 
   createPost(form: NgForm) {
-    if (this.user) {
+    if (this.user && form.value.name != '' ) {
       const postData: CreatePost = {
         userId: this.user.user.id,
         authorImg: this.user.user.avatar,
@@ -39,7 +39,10 @@ export class NavbarComponent {
         body: form.value.name,
       };
       this.postSrv.postPost(postData).subscribe(() => {});
-    }
+      form.reset();
+    } else {
+      alert ('You have to frist write a post')
+    } 
   }
 
   getAllUsers(){
