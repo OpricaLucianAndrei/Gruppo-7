@@ -3,8 +3,7 @@
 
 <div class="container">
     <div class="row">
-        <ol>
-            <li class="m-4 d-flex card shadow p-4" *ngFor="let post of posts">
+            <div class="col-5 m-4 d-flex card shadow p-3" *ngFor="let post of posts">
                 <div class="modal fade" id="exampleModal{{post.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
@@ -16,7 +15,7 @@
                             </div>
                             <div class="modal-body">
                                 <h3>Id: {{post.id}}</h3>
-                                <h3 class="mt-0">Title: {{post.title}}</h3>
+                                <h3 class="mt-0">{{post.author}}</h3>
                                 <p>Text: {{post.body}}</p>
                             </div>
                             <div class="modal-footer">
@@ -25,14 +24,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-9 d-flex align-items-top p-2">
+                <div class="col-12 d-flex align-items-top">
                     <div class="row">
-                        <div class="col-1 mt-2">
-                            <p> ID post: {{post.id}}</p>
-                        </div>
-                        <div class="col-11">
-                            <h3 class="mt-0"> {{post.title}}</h3>
-                            <p> {{post.body}}</p>
+                        <div class="col-12">
+                            <h3 class="mt-0"><img src="{{post.authorImg}}" alt="profile image {{post.author}}" class="rounded-5 w-25"> {{post.author}}</h3>
+                            <p class="w-100"> {{post.body.slice(0, 200)}}...</p>
                         </div>
                     </div>
                 </div>
@@ -43,24 +39,23 @@
                     </div>
                     <div class="offcanvas-body">
                         <div class="d-flex flex-column">
-                            <input type="text" [(ngModel)]="post.title" class="card-title form-control" id="inputTitolo">
+                            <h3>{{post.author}}</h3>
                             <textarea name="testPost" id="testPost" cols="30" rows="10" class="card-text form-control" [(ngModel)]="post.body"></textarea>
-                            <button class="btn btn-success mt-2" (click)="eseguiPut(post.id, post)">Save</button>
+                            <button class="btn btn-success mt-2" (click)="eseguiPut(post.id, post)" data-bs-dismiss="offcanvas" aria-label="Close">Save</button>
                         </div>
                     </div>
                   </div>
-                <div class="col-3" *ngIf="user">
-                    <a class="btn btn-primary mx-2" type="button" data-bs-toggle="offcanvas" [attr.data-bs-target]="'#offcanvasRight' + post.id" aria-controls="offcanvasRight">Edit</a>
+                <div class="col-12 my-2 card-footer bg-white py-4 d-flex" *ngIf="user">
+                    <a class="btn btn-primary mx-2" type="button" data-bs-toggle="offcanvas" [attr.data-bs-target]="'#offcanvasRight' + post.id" aria-controls="offcanvasRight" *ngIf="user.user.id === post.userId">Edit</a>
                     <a  type="button" class="btn btn-primary mx-2" data-bs-toggle="modal"
                         [attr.data-bs-target]="'#exampleModal' + post.id"> More
                     </a>
-                    <a class="btn btn-outline-danger mx-2" (click)="deletePost(post.id)"> 
+                    <a class="btn btn-outline-danger mx-2" (click)="deletePost(post.id, post.userId)"> 
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
                             <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
                           </svg>     
                     </a>
                 </div>
-            </li>
-        </ol>
+            </div>
     </div>
 </div>
