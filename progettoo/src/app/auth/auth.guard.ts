@@ -26,11 +26,11 @@ export class AuthGuard implements CanActivate {
     return this.auth.user$.pipe(
       take(1),
       map((user) => {
-        if (user) {
+        if (!user) {
           return true;
         }
-        alert('You must be logged in to access this page');
-        return this.router.createUrlTree(['/login']);
+        alert('You are already logged in');
+        return this.router.createUrlTree(['/']);
       })
     );
   }

@@ -8,8 +8,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PostComponent } from './components/post/post.component';
-import { PostDetailComponent } from './components/post-detail/post-detail.component';
-import { PostEditComponent } from './components/post-edit/post-edit.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
@@ -22,22 +20,14 @@ const routes: Route[] = [
   },
   {
     path: 'signin',
-    component: SigninComponent
+    component: SigninComponent,
+    canActivate : [AuthGuard]
   },
   {
     path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'post-details',
-    component: PostDetailComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'post-edit',
-    component: PostEditComponent,
-    canActivate: [AuthGuard]
-  },
+    component: LoginComponent,
+    canActivate : [AuthGuard]
+  }
 ];
 
 @NgModule({
@@ -46,8 +36,6 @@ const routes: Route[] = [
     HomeComponent,
     NavbarComponent,
     PostComponent,
-    PostDetailComponent,
-    PostEditComponent,
     SigninComponent,
     LoginComponent,
   ],

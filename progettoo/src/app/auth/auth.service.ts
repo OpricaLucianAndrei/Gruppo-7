@@ -7,6 +7,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Login } from '../models/login';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Observable } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
@@ -65,6 +66,11 @@ export class AuthService {
       }, millisecondsExp);
   }
 
+  getAllUsers(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiURL}users`).pipe(
+      catchError(this.errors)
+    );
+  }
 
   private errors(err: any) {
       console.log(err.error);

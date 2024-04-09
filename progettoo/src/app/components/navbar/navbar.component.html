@@ -15,10 +15,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active text-white" [routerLink]="['/']"
-                                routerLinkActive="active">Home</a>
+                        <li class="nav-item" *ngIf="user?.user?.admin"> 
+                            <button  *ngIf="user" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getAllUsers()">
+                                Users
+                              </button>
                         </li>
+                          
                         <li class="nav-item" *ngIf="user">
                             <button class="btn btn-outline-info" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -74,3 +76,38 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Utenti Registrati</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <table class="table">
+                <thead >
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col" *ngIf="user?.user?.admin"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let users of listUsers" class="table-dark">
+                        <th scope="row">{{users.id}}</th>
+                        <td>{{users.name}}</td>
+                        <td>{{users.email}}</td>
+                        <button  *ngIf="user?.user?.admin"> cancella </button>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

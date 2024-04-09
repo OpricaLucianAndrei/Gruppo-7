@@ -1,8 +1,8 @@
-<h1 class="text-center display-3 mt-3"> ALL YOUR POSTS </h1>
+<h1 class="text-center display-4 mt-3"> ALL POSTS </h1>
 
 
 <div class="container">
-    <div class="row">
+    <div class="row d-flex justify-content-center">
             <div class="col-5 m-4 d-flex card shadow p-3" *ngFor="let post of posts">
                 <div class="modal fade" id="exampleModal{{post.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
@@ -14,9 +14,8 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <h3>Id: {{post.id}}</h3>
                                 <h3 class="mt-0">{{post.author}}</h3>
-                                <p>Text: {{post.body}}</p>
+                                <p> {{post.body}}</p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -27,8 +26,8 @@
                 <div class="col-12 d-flex align-items-top">
                     <div class="row">
                         <div class="col-12">
-                            <h3 class="mt-0"><img src="{{post.authorImg}}" alt="profile image {{post.author}}" class="rounded-5 w-25"> {{post.author}}</h3>
-                            <p class="w-100"> {{post.body.slice(0, 200)}}...</p>
+                            <h3 class="mt-0"><img src="{{post.authorImg}}" alt="profile image {{post.author}}" class="rounded-5" width="50px"> {{post.author}}</h3>
+                            <p class="w-100"> {{post.body.slice(0, 100) + '...'}}</p>
                         </div>
                     </div>
                 </div>
