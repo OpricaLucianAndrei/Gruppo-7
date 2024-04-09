@@ -1,4 +1,4 @@
-<div class="bg-black pt-3 min-vh-100" >
+<div class="bg-black pt-3 min-vh-100 max-vw-100" >
     <div class="text-center">
         <h1 class="display-4 mb-4 text-white fw-semibold"> ALL POSTS </h1>
         <img src="../../../assets/SvgSpinners6DotsRotate.svg" alt="" id="spin">
@@ -6,14 +6,15 @@
     
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="card mx-2 mb-2 shadow bg-dark " style="width: 23%;" *ngFor="let post of posts">
+            <ng-container *ngFor="let post of posts">
                 
+            <div class="card mx-2 mb-4 shadow bg-dark " >
                 <div class="card-header px-0 ">
                     <div class="container-fluid px-0 mx-0">
                         <div class="row d-flex align-items-center px-0 mx-0">
                             <div class="col-3">
                                 <img src="{{post.authorImg}}" alt="profile image {{post.author}}" class="rounded-5"
-                                    width="50px">
+                                    width="50px" height="50px">
                             </div>
                             <div class="col-9">
                                 <h5 class="card-title text-white">{{post.author}}</h5>
@@ -22,6 +23,7 @@
                     </div>
     
                 </div>
+                
                 <div class="card-body border-top border-secondary border-bottom my-2 py-3">
                     <p class="card-text text-white"> {{post.body.slice(0, 100) + '...'}}</p>
                 </div>
@@ -29,7 +31,7 @@
                     <a class="btn btn-primary mx-2" type="button" data-bs-toggle="offcanvas"
                         [attr.data-bs-target]="'#offcanvasRight' + post.id" aria-controls="offcanvasRight"
                         *ngIf="user.user.id === post.userId || user.user.admin " >Edit</a>
-                    <a type="button" class="btn btn-primary mx-2" data-bs-toggle="modal"
+                    <a type="button" class="btn btn-primary mx-2 card-button" data-bs-toggle="modal"
                         [attr.data-bs-target]="'#exampleModal' + post.id" > More
                     </a>
                     <a class="btn btn-outline-danger mx-2" (click)="deletePost(post.id, post.userId)"  *ngIf="user.user.id === post.userId || user.user.admin ">
@@ -40,24 +42,7 @@
                         </svg>
                     </a>
                 </div>
-                <div class="modal fade" id="exampleModal{{post.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Post Details</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <h3 class="mt-0">{{post.author}}</h3>
-                                <p> {{post.body}}</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight{{post.id}}"
                     aria-labelledby="offcanvasRightLabel">
                     <div class="offcanvas-header">
@@ -75,7 +60,25 @@
                     </div>
                 </div>
             </div>
-    
+            <div class="modal fade" id="exampleModal{{post.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Post Details</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h3 class="mt-0">{{post.author}}</h3>
+                            <p> {{post.body}}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
     
     
         </div>
