@@ -18,7 +18,7 @@ import { TokenInterceptor } from './auth/token.interceptor';
 const routes: Route[] = [
   {
     path: '',
-    component: HomeComponent,
+    component: HomeComponent
   },
   {
     path: 'signin',
@@ -26,7 +26,7 @@ const routes: Route[] = [
   },
   {
     path: 'login',
-    component: LoginComponent,
+    component: LoginComponent
   },
   {
     path: 'post-details',
