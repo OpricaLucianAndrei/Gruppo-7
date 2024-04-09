@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { Post } from '../models/post';
+import { CreatePost } from '../models/create-post';
+import { NgForm } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +26,10 @@ export class PostsService {
 
    deletePosts(postId:number) {
     return this.http.delete<Post> (`${this.APIURL}posts/${postId}`)
+   }
+
+   postPost(post: CreatePost) {
+    return this.http.post (`${this.APIURL}posts`, post)
    }
 
 }

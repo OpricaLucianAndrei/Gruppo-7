@@ -3,6 +3,8 @@ import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/models/post';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Login } from 'src/app/models/login';
+import { PostsService } from 'src/app/service/posts.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +15,7 @@ export class NavbarComponent {
 
   user!: Login | null;
 
-constructor( private authSrv: AuthService ) {}
+constructor( private authSrv: AuthService, private postSrv: PostsService ) {}
 
 ngOnInit(): void {
   this.authSrv.user$.subscribe((user) => {
@@ -23,6 +25,10 @@ ngOnInit(): void {
 
 logout() {
   this.authSrv.logout()
+}
+
+createPost(form: NgForm) {
+  this.postSrv.postPost(form.value).subscribe()
 }
 
 

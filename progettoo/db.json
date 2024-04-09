@@ -5,12 +5,14 @@
       "password": "$2a$10$ZLY63quWnMVo0lO951uFdOJRfUxeo8U6YJ/Cue06Vgp4Ad8S/CjaC",
       "name": "Dario",
       "id": 1,
+      "admin": true,
       "avatar": "https://avatars.githubusercontent.com/u/64127976?v=4"
     },
     {
       "email": "elena@kekic.com",
       "password": "$2a$10$Iz2.xeLs.MmDykj8Ho50pOLIyxFO0pDB/1396bQoNGr0VQkDPV9uu",
       "name": "elena kekic",
+      "admin": true,
       "id": 2,
       "avatar": "https://avatars.githubusercontent.com/u/157897660?v=4"
     },
@@ -18,6 +20,7 @@
       "email": "felice@cesarano.com",
       "password": "$2a$10$3Kim0UhWAWdM08hoYRFP0.pg2/Ev1XDFWf6IiroiNKcOc2eSueVFO",
       "name": "felice cesarano",
+      "admin": true,
       "id": 3,
       "avatar": "https://avatars.githubusercontent.com/u/157111990?v=4"
     },
@@ -69,9 +72,23 @@
       "name": "CichiraAAAAn",
       "id": 10,
       "avatar": "https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png"
+    },
+    {
+      "email": "qualcosa@lala.com",
+      "password": "$2a$10$SfLZ5IQoXPT5jG/HyeK.fOiFIQ8bUYs4S4flzGI./8WW5dbldLpq.",
+      "name": "qualcosa lala",
+      "profileImg": "https://www.my-personaltrainer.it/2023/11/24/gatto-europeo_900x760.jpeg",
+      "id": 11
     }
   ],
   "posts": [
+    {
+      "userId": 11,
+      "id": 100,
+      "authorImg": "https://www.my-personaltrainer.it/2023/11/24/gatto-europeo_900x760.jpeg",
+      "author": "Qualcosa lala",
+      "body": "lala "
+    },
     {
       "userId": 4,
       "id": 1,
@@ -370,7 +387,7 @@
       "userId": 5,
       "id": 50,
       "authorImg": "https://avatars.githubusercontent.com/u/157076493?v=4",
-      "author": "https://avatars.githubusercontent.com/u/157076493?v=4",
+      "author": "massimo berlingeri",
       "body": "error suscipit maxime adipisci consequuntur recusandae\nvoluptas eligendi et est et voluptates\nquia distinctio ab amet quaerat molestiae et vitae\nadipisci impedit sequi nesciunt quis consectetur"
     },
     {

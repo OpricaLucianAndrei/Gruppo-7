@@ -5,5 +5,7 @@ export interface Login {
         authorImg: string;
         email: string;
         name: string;
+        admin: boolean; 
+        
     }
 }
