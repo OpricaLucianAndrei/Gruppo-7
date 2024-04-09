@@ -2,10 +2,9 @@ export interface Login {
     accessToken: string;
     user: {
         id: number;
-        authorImg: string;
+        avatar: string;
         email: string;
         name: string;
         admin: boolean; 
-        
     }
 }

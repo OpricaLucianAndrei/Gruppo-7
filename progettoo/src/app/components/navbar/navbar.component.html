@@ -39,14 +39,14 @@
 </nav>
 <div class="collapse container-fluid bg-black ps-5 pt-0 pb-4" id="collapseExample">
     <div class="card card-body ms-5" style="width: 35%;">
-            <form  >
+            <form #formPost="ngForm" >
                 <div class="form-group">
                     <label for="name" class="form-label fs-4 fw-semibold">What's on your mind? </label>
                     <textarea type="text" id="name" name="name" required class="form-control" ngModel > </textarea>
                 </div>
                 <div class="btn-conteiner mt-3 float-start">
                     <a class="btn-content" href="#">
-                      <span class="btn-title">Create post</span>
+                      <span class="btn-title" (click)="createPost(formPost)">Create post</span>
                       <span class="icon-arrow">
                         <svg width="66px" height="53px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                           <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
