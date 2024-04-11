@@ -14,7 +14,7 @@ import { Post } from 'src/app/models/post';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-
+  posts: Post[] = [];
   user: Login | null;
   listUsers: any[] = [];
   color: string = '#18A1D0';
@@ -58,7 +58,9 @@ export class NavbarComponent {
         author: this.user.user.name,
         body: form.value.name,
       };
-      this.postSrv.postPost(postData).subscribe(() => {});
+      this.postSrv.postPost(postData).subscribe(() => {
+        this.postSrv.triggerPostUpdate();
+      });
       form.reset();
     } else {
       alert ('You have to frist write a post')
@@ -76,5 +78,11 @@ export class NavbarComponent {
         console.error('Error fetching users:', error);
       }
     );
+  }
+
+  getPosts() {
+    this.postSrv.getPosts().subscribe((response) => {
+      this.posts = response; 
+     })
   }
 }
