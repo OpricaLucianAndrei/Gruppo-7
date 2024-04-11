@@ -1,8 +1,9 @@
-<div class="container-fluid pt-4 bg-black pb-5" style="height: 100%;">
+<app-navbar></app-navbar>
+<div class="container-fluid pt-4 bg-black pb-5" style="min-height: 88.3vh;">
     <h1 class="text-center text-white mb-3">Login</h1>
     <div class="d-flex justify-content-center">
         <div class="rounded-4 bg-white">
-            <form class="form" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+            <form class="form" #loginForm="ngForm" (ngSubmit)="login(loginForm, colorInput.value)">
                 <div class="flex-column">
                     <label>Email </label>
                 </div>
@@ -41,31 +42,18 @@
                     aria-expanded="false" aria-controls="collapseExample">
                     Chose the secondary color of the app
                 </button>
-                <!-- <button class="btn btn-black text-white ms-2" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
-                data-bs-dismiss="#collapseExample">
-                Chose the secondary color of the app
-            </button> -->
-
-                <!-- <div class="collapse" id="collapseExample">
-                
-    
-            </div> -->
-
-
-
+                <div class="collapse shadow rounded" id="collapseExample">
+                    <div class="card card-body  d-flex justify-content-center align-items-center">
+                        <label class="mb-2">Choose here the secondary color of the app:</label>
+                        <input class="mb-2" type="color" #colorInput (input)="setColor(colorInput.value)" name="color" id="color" ngModel>
+                        <button class="fs-6 p-1 w-25 h-75 bg-black rounded-4 text-white" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseExample" aria-expanded="false"
+                            aria-controls="collapseExample">Conferma</button>
+                        
+                    </div>
+                </div>
                 <p class="p">Don't have an account? <span class="span" [routerLink]="['/signin']">Sign in</span>
             </form>
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body  d-flex justify-content-center align-items-center">
-                    <label class="mb-2">Choose here the secondary color of the app:</label>
-                    <input class="mb-2" type="color" #colorInput (input)="setColor(colorInput.value)">
-                    <button class="fs-6 p-1 w-25 h-75 bg-black rounded-4 text-white" (click)="confirmColor()" data-bs-toggle="collapse"
-                        data-bs-target="#collapseExample" aria-expanded="false"
-                        aria-controls="collapseExample">Conferma</button>
-                    
-                </div>
-            </div>
         </div>
 
     </div>

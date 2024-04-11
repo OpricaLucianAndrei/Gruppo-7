@@ -5,6 +5,7 @@ export interface Login {
         avatar: string;
         email: string;
         name: string;
-        admin: boolean; 
+        admin: boolean;
+        color: string
     }
 }

@@ -3,4 +3,5 @@ export interface Signin {
     avatar: string,
     email: string,
     password: string,
+    colore?: string
 }

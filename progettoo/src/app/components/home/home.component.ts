@@ -29,19 +29,22 @@ export class HomeComponent implements OnInit{
         this.color = color
       }
     })
-    this.color = this.colorSrv.getColor();
-    console.log(this.color);
+   this.getUser()
     setTimeout(() => {
+      console.log(this.color);
       let spinner = document.getElementById('spin');
       spinner?.classList.add('d-none')
-      this.getUser();
       this.getPost();
-    }, 1000 );
+    }, 1000);
+  
   }
+
+
 
   getUser() {
     this.authSrv.user$.subscribe((user) => {
       this.user = user;
+      this.color = this.user!.user.color;
       console.log(this.user);
     });
   }

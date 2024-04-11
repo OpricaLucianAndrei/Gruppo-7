@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Login } from 'src/app/models/login';
@@ -6,9 +6,7 @@ import { PostsService } from 'src/app/service/posts.service';
 import { CreatePost } from 'src/app/models/create-post';
 import { UserService } from 'src/app/service/user.service';
 import { ColoService } from 'src/app/service/colo.service';
-import { map } from 'rxjs';
 import { Post } from 'src/app/models/post';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -16,32 +14,40 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
+
   user: Login | null;
   listUsers: any[] = [];
   color: string = '#18A1D0';
-  posts: Post[] = [];
 
-  constructor(private authSrv: AuthService, private postSrv: PostsService,  private colorSrv: ColoService, private router: Router) {
+  constructor(private authSrv: AuthService, private postSrv: PostsService,  private colorSrv: ColoService) {
     this.user = null;
   }
 
   ngOnInit(): void {
     this.colorSrv.color$.subscribe((color) => {
       if (color) {
-        this.color = color
+        this.color = color;
       }
-    })
-    this.color = this.colorSrv.getColor();  
+    });
+  
     this.authSrv.user$.subscribe((user) => {
       this.user = user;
-      console.log(this.user);
+      if (this.user && this.user.user.color) {
+        this.color = this.user.user.color;
+      }
     });
-   
   }
 
   logout() {
     this.authSrv.logout();
-    this.colorSrv.removeColor()
+  }
+
+  getUser() {
+    this.authSrv.user$.subscribe((user) => {
+      this.user = user;
+      this.color = this.user!.user.color;
+      console.log(this.user);
+    });
   }
 
   createPost(form: NgForm) {
@@ -54,11 +60,11 @@ export class NavbarComponent {
       };
       this.postSrv.postPost(postData).subscribe(() => {});
       form.reset();
-     window.location.reload()
     } else {
       alert ('You have to frist write a post')
     } 
   }
+
 
   getAllUsers(){
     this.authSrv.getAllUsers().subscribe(
@@ -71,5 +77,4 @@ export class NavbarComponent {
       }
     );
   }
-
 }

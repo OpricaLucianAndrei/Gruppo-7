@@ -11,20 +11,13 @@ export class ColoService {
   color$: Observable<string | null> = this.colorSubject.asObservable();
 
   constructor() {
-    this.colorSubject.next(localStorage.getItem('color'))
   }
 
   setColor(color: string): void {
     this.colorSubject.next(color);
-    localStorage.setItem('color', color);
   }
 
   getColor(): string {
-     return  this.colorSubject.value || '#18A1D0'; // Ritorna un colore predefinito se il valore è null o undefined
-  }
-
-  removeColor() {
-    localStorage.removeItem('color');
-    this.colorSubject.next(null)
+     return  this.colorSubject.value || '#18A1D0';
   }
 }
