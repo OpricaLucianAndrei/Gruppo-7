@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Post, User } from 'src/app/models/post';
+import { Component, OnInit, OnChanges} from '@angular/core';
+import { Post} from 'src/app/models/post';
 import { PostsService } from 'src/app/service/posts.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Login } from 'src/app/models/login';
-import { NgForm } from '@angular/forms';
 import { map } from 'rxjs';
 import { ColoService } from 'src/app/service/colo.service';
 
@@ -12,7 +11,7 @@ import { ColoService } from 'src/app/service/colo.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit{
   posts: Post[] = [];
   post!: Post;
   user!: Login | null;
@@ -22,14 +21,15 @@ export class HomeComponent implements OnInit {
 
   constructor(private postSrv: PostsService, private authSrv: AuthService, private colorSrv: ColoService) {}
 
+
   ngOnInit() {
     this.color = this.colorSrv.getColor();
-    this.colorSrv.color$.subscribe(color => {
-      this.color = color || '#18A1D0';
-      console.log(this.color);
-    });
-    this.getRandomPosts();
-    this.getUser();
+    console.log(this.color);
+    setTimeout(() => {
+      this.getRandomPosts();
+      this.getUser();
+    }, 1000 );
+    
   }
 
   getRandomPosts() {

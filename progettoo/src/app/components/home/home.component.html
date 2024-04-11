@@ -8,8 +8,7 @@
         <div class="row d-flex justify-content-center">
             <ng-container *ngFor="let post of posts">
                 <div class="card mx-2 mb-4 shadow bg-dark " [style.border]="'1px solid transparent'"
-                [style.border-color]="color"
-                (mouseenter)="color = 'color'">
+                    [style.border-color]="color" (mouseenter)="color = 'color'">
                     <div class="card-header px-0 ">
                         <div class="container-fluid px-0 mx-0">
                             <div class="row d-flex align-items-center px-0 mx-0">
@@ -30,7 +29,7 @@
                     </div>
                     <div class="card-footer py-3 px-2" *ngIf="user">
                         <a class="btn mx-2" type="button" data-bs-toggle="offcanvas"
-                            [attr.data-bs-target]="'#offcanvasRight' + post.id" aria-controls="offcanvasRight"
+                            [attr.data-bs-target]="'#offcanvasStart' + post.id" aria-controls="offcanvasStart"
                             *ngIf="user.user.id === post.userId || user.user.admin " [style.background]="color">Edit</a>
                         <a type="button" class="btn  mx-2 card-button" data-bs-toggle="modal"
                             [attr.data-bs-target]="'#exampleModal' + post.id" [style.background]="color"> More
@@ -44,11 +43,10 @@
                             </svg>
                         </a>
                     </div>
-
-                    <div class="offcanvas offcanvas-end rounded-4" tabindex="-1" id="offcanvasRight{{post.id}}"
-                        aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas offcanvas-start rounded-4" tabindex="-1" id="offcanvasStart{{post.id}}"
+                        aria-labelledby="offcanvasStartLabel">
                         <div class="offcanvas-header">
-                            <h5 class="offcanvas-title" id="offcanvasRightLabel">Edit the post</h5>
+                            <h5 class="offcanvas-title" id="offcanvasStartLabel">Edit the post</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>
@@ -59,10 +57,9 @@
                                     class="card-text form-control" [(ngModel)]="post.body"></textarea>
                             </div>
                         </div>
-                        <button
-                            class="btn btn-success p-1 rounded-5 d-flex justify-content-center align-items-center"
-                            (click)="eseguiPut(post.id, post)" data-bs-dismiss="offcanvas" aria-label="Close" id="btnSave"
-                            >
+                        <button class="btn btn-success p-1 rounded-5 d-flex justify-content-center align-items-center"
+                            (click)="eseguiPut(post.id, post)" data-bs-dismiss="offcanvas" aria-label="Close"
+                            id="btnSave">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -74,22 +71,22 @@
                 <div class="modal fade" id="exampleModal{{post.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content"  [style.border]="'1px solid transparent'"
-                        [style.border-color]="color"
-                        (mouseenter)="color = 'color'">
+                        <div class="modal-content" [style.border]="'1px solid transparent'" [style.border-color]="color"
+                            (mouseenter)="color = 'color'">
                             <div class="modal-header" [style.background]="color">
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Post Details</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body bg-dark p-5">
-                                <h3 class="mt-0 mb-3 p-3 fs-3 text-white" [style.border-bottom]="'1px solid transparent'"
-                                [style.border-color]="color"
-                                (mouseenter)="color = 'color'">{{post.author}}</h3>
+                                <h3 class="mt-0 mb-3 p-3 fs-3 text-white"
+                                    [style.border-bottom]="'1px solid transparent'" [style.border-color]="color"
+                                    (mouseenter)="color = 'color'">{{post.author}}</h3>
                                 <p class="fs-5 text-white p-4"> {{post.body}}</p>
                             </div>
                             <div class="modal-footer" [style.background]="color">
-                                <button type="button" class="btn btn-dark text-white" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-dark text-white"
+                                    data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>

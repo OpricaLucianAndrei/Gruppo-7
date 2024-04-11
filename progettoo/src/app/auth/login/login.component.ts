@@ -7,26 +7,27 @@ import { ColoService } from 'src/app/service/colo.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent{
+export class LoginComponent {
+  constructor(
+    private authSrv: AuthService,
+    private router: Router,
+    private colorSrv: ColoService
+  ) {}
 
-  constructor(private authSrv: AuthService, private router: Router, private colorSrv: ColoService) {}
-
-  
   login(form: NgForm) {
-      console.log(form.value);
-      try {
-          this.authSrv.login(form.value).subscribe();
-          this.router.navigate(['/']);
-      } catch (error) {
-          console.error(error);
-      }
+    console.log(form.value);
+    try {
+      this.authSrv.login(form.value).subscribe();
+      this.router.navigate(['/']);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   setColor(color: string): void {
-    this.colorSrv.setColor(color);
-    console.log(color);
+    let coloreScelto = this.colorSrv.setColor(color);
+    console.log(coloreScelto); 
   }
-
 }

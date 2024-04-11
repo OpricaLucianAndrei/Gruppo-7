@@ -15,16 +15,17 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item ms-3" *ngIf="user?.user?.admin"> 
-                            <button  *ngIf="user" type="button" class="btn text-black" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getAllUsers()"  [style.background]="color">
+                        <li class="nav-item ms-3" *ngIf="user?.user?.admin">
+                            <button *ngIf="user" type="button" class="btn text-black" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal" (click)="getAllUsers()" [style.background]="color">
                                 Users
-                              </button>
-                        </li> 
+                            </button>
+                        </li>
                         <li class="nav-item ms-3" *ngIf="user">
                             <button class="btn btn-outline-color" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" [style.color]="color" [style.border]="'1px solid transparent'"
-                                [style.border-color]="color"
-                                (mouseenter)="color = 'color'">
+                                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
+                                [style.color]="color" [style.border]="'1px solid transparent'"
+                                [style.border-color]="color" (mouseenter)="color = 'color'">
                                 Create post
                             </button>
                         </li>
@@ -33,15 +34,25 @@
             </div>
             <div class="float-end d-flex align-items-center">
 
-                <p *ngIf="user" class="m-0 mx-4 text-white"> Hello, <span class="fs-5 fw-semibold" [style.color]="color"> 
+                <p *ngIf="user" class="m-0 mx-4 text-white"> Hello, <span class="fs-5 fw-semibold"
+                        [style.color]="color">
                         {{user.user.name |
                         uppercase}}</span> </p>
+                <div *ngIf="user" class="dropdown">
+                    <button class="btn text-white dropdown-toggle border-0" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img src="{{user.user.avatar}}" width="50px" class="rounded-5"/>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end bg-transparent border-0">
+                        <li>  <a class="btn btn-outline-danger float-end" *ngIf="user" (click)="logout()">Log out </a></li>
+                        
+                    </ul>
+                </div>
                 <a class="btn btn-outline-info me-4" *ngIf="!user" routerLink="/signin" routerLinkActive="active">
                     Sign
                     in</a>
                 <a class="btn btn-outline-info" *ngIf="!user" routerLink="/login" routerLinkActive="active"> Login
                 </a>
-                <a class="btn btn-outline-danger" *ngIf="user" (click)="logout()">Log out </a>
             </div>
         </div>
     </nav>
@@ -53,8 +64,10 @@
                     <textarea type="text" id="name" name="name" required class="form-control" ngModel> </textarea>
                 </div>
                 <div class="btn-conteiner mt-3 float-start rounded-4" [style.background]="color">
-                    <a class="btn-content" (click)="createPost(formPost)" data-bs-dismiss="#collapseExample"  data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" data-bs-toggle="collapse">
-                        <span class="btn-title"  >Create post</span>
+                    <a class="btn-content" (click)="createPost(formPost)" data-bs-dismiss="#collapseExample"
+                        data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
+                        data-bs-toggle="collapse">
+                        <span class="btn-title">Create post</span>
                         <span class="icon-arrow">
                             <svg width="66px" height="53px" viewBox="0 0 66 43" version="1.1"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -79,32 +92,32 @@
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">List of logged users</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">List of logged users</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <table class="styled-table">
+                    <thead>
+                        <tr [style.background]="color">
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of listUsers">
+                            <th>{{user.id}}</th>
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+            </div>
         </div>
-        <div class="modal-body d-flex justify-content-center">
-            <table class="styled-table">
-                <thead>
-                    <tr [style.background]="color">
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let user of listUsers">
-                        <th>{{user.id}}</th>
-                        <td>{{user.name}}</td>
-                        <td>{{user.email}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-        </div>
-      </div>
     </div>
 </div>

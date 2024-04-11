@@ -27,14 +27,11 @@ export class NavbarComponent {
       console.log(this.user);
     });
     this.color = this.colorSrv.getColor();
-    this.colorSrv.color$.subscribe(color => {
-      this.color = color || '#18A1D0';
-      console.log(this.color);
-    });
   }
 
   logout() {
     this.authSrv.logout();
+    this.colorSrv.removeColor()
   }
 
   createPost(form: NgForm) {
