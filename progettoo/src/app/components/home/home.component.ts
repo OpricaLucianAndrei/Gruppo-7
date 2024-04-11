@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges} from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges} from '@angular/core';
 import { Post} from 'src/app/models/post';
 import { PostsService } from 'src/app/service/posts.service';
 import { AuthService } from 'src/app/auth/auth.service';
@@ -22,35 +22,21 @@ export class HomeComponent implements OnInit{
   constructor(private postSrv: PostsService, private authSrv: AuthService, private colorSrv: ColoService) {}
 
 
+
   ngOnInit() {
+    this.colorSrv.color$.subscribe((color) => {
+      if (color) {
+        this.color = color
+      }
+    })
     this.color = this.colorSrv.getColor();
     console.log(this.color);
     setTimeout(() => {
-      this.getRandomPosts();
+      let spinner = document.getElementById('spin');
+      spinner?.classList.add('d-none')
       this.getUser();
+      this.getPost();
     }, 1000 );
-    
-  }
-
-  getRandomPosts() {
-    this.postSrv
-      .getPosts()
-      .pipe(map((posts) => this.shuffleArray(posts)))
-      .subscribe((randomizedPosts) => {
-        this.posts = randomizedPosts;
-        console.log(this.posts);
-        let spinner = document.getElementById('spin');
-        spinner?.classList.add('d-none')
-            });
-  }
-
-  shuffleArray(array: any[]) {
-    const newArray = array.slice();
-    for (let i = newArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-    }
-    return newArray;
   }
 
   getUser() {
@@ -79,7 +65,14 @@ export class HomeComponent implements OnInit{
       this.postSrv.deletePosts(postId).subscribe((response) => {
         console.log('Post eliminato con successo', response);
       });
-      this.getRandomPosts();
+      this.getPost()
     }
   }
+
+  getPost() {
+     this.postSrv.getPosts().subscribe((response) => {
+      this.posts = response; 
+     })
+  }
+
 }

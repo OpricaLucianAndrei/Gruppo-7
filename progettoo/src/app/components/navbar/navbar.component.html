@@ -1,3 +1,5 @@
+
+
 <div class="sticky-top">
     <nav class="navbar navbar-expand-lg bg-black p-3">
         <div class="container-fluid d-flex align-items-center">
@@ -41,7 +43,7 @@
                 <div *ngIf="user" class="dropdown">
                     <button class="btn text-white dropdown-toggle border-0" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <img src="{{user.user.avatar}}" width="50px" class="rounded-5"/>
+                        <img src="{{user.user.avatar}}" width="50px" height="50px" class="rounded-5"/>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end bg-transparent border-0">
                         <li>  <a class="btn btn-outline-danger float-end" *ngIf="user" (click)="logout()">Log out </a></li>

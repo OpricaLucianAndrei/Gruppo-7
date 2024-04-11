@@ -1,6 +1,6 @@
 export interface Signin {
     name: string,
-    authorImg: string,
+    avatar: string,
     email: string,
     password: string,
 }

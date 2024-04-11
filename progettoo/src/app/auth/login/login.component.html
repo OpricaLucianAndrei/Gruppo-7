@@ -59,10 +59,11 @@
             <div class="collapse" id="collapseExample">
                 <div class="card card-body  d-flex justify-content-center align-items-center">
                     <label class="mb-2">Choose here the secondary color of the app:</label>
-                    <input class="mb-2" type="color" #colorInput>
-                    <button class="fs-6 p-1 w-25 h-75 bg-black rounded-4 text-white" (click)="setColor(colorInput.value)" data-bs-toggle="collapse"
+                    <input class="mb-2" type="color" #colorInput (input)="setColor(colorInput.value)">
+                    <button class="fs-6 p-1 w-25 h-75 bg-black rounded-4 text-white" (click)="confirmColor()" data-bs-toggle="collapse"
                         data-bs-target="#collapseExample" aria-expanded="false"
                         aria-controls="collapseExample">Conferma</button>
+                    
                 </div>
             </div>
         </div>

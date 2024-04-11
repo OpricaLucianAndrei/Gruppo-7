@@ -19,15 +19,20 @@ export class LoginComponent {
   login(form: NgForm) {
     console.log(form.value);
     try {
-      this.authSrv.login(form.value).subscribe();
-      this.router.navigate(['/']);
+      this.authSrv.login(form.value).subscribe(() => {
+        this.router.navigate(['/']);
+      });
     } catch (error) {
       console.error(error);
     }
   }
 
   setColor(color: string): void {
-    let coloreScelto = this.colorSrv.setColor(color);
-    console.log(coloreScelto); 
+    this.colorSrv.setColor(color);
+    console.log(color)
+  }
+
+  confirmColor(): void {
+    alert('Your color was changed successfully!')
   }
 }
