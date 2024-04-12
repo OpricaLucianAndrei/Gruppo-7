@@ -1,25 +1,31 @@
-import { Component, OnInit, OnChanges, SimpleChanges} from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, OnDestroy} from '@angular/core';
 import { Post} from 'src/app/models/post';
 import { PostsService } from 'src/app/service/posts.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Login } from 'src/app/models/login';
 import { map } from 'rxjs';
 import { ColoService } from 'src/app/service/colo.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit, OnDestroy{
   posts: Post[] = [];
   post!: Post;
   user!: Login | null;
   edit: boolean = true;
   color: string = '#18A1D0';
+  postSubscription: Subscription;
 
 
-  constructor(private postSrv: PostsService, private authSrv: AuthService, private colorSrv: ColoService) {}
+  constructor(private postSrv: PostsService, private authSrv: AuthService, private colorSrv: ColoService) {
+    this.postSubscription = this.postSrv.postUpdated$.subscribe(() => {
+      this.getPosts();
+    });
+  }
 
 
 
@@ -40,6 +46,9 @@ export class HomeComponent implements OnInit{
   }
 
 
+  ngOnDestroy() {
+    this.postSubscription.unsubscribe();
+  }
 
   getUser() {
     this.authSrv.user$.subscribe((user) => {
@@ -75,7 +84,21 @@ export class HomeComponent implements OnInit{
   getPost() {
      this.postSrv.getPosts().subscribe((response) => {
       this.posts = response; 
+      if (this.user && this.user.user.color) {
+        this.color = this.user.user.color;
+      }
      })
+  }
+
+  getPosts() {
+    this.postSrv.getPosts().subscribe((posts) => {
+      this.posts = posts;
+      if (this.user && this.user.user.color) {
+        this.color = this.user.user.color;
+      }
+    });
+      
+    
   }
 
 }

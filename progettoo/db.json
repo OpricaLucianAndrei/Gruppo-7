@@ -7,7 +7,7 @@
       "id": 1,
       "admin": true,
       "avatar": "https://avatars.githubusercontent.com/u/64127976?v=4",
-      "color": "#ff0000"
+      "color": "#00ff2a"
     },
     {
       "email": "elena@kekic.com",
@@ -24,7 +24,7 @@
       "name": "Felice Cesarano",
       "id": 3,
       "avatar": "https://avatars.githubusercontent.com/u/157111990?v=4",
-      "color": "#18A1D0"
+      "color": "#f4eb01"
     },
     {
       "email": "webmail.epicode.it",
@@ -435,13 +435,6 @@
     },
     {
       "userId": 7,
-      "id": 63,
-      "authorImg": "https://avatars.githubusercontent.com/u/152313869?v=4",
-      "author": "Lucian Oprica",
-      "body": "Ma sai che ti dico? copia e incolla, nobody will ever know that this happened"
-    },
-    {
-      "userId": 7,
       "id": 64,
       "authorImg": "https://avatars.githubusercontent.com/u/152313869?v=4",
       "author": "Lucian Oprica",
@@ -467,13 +460,6 @@
       "authorImg": "https://avatars.githubusercontent.com/u/152313869?v=4",
       "author": "Lucian Oprica",
       "body": "Guarda se mi dai due secondi te lo faccio"
-    },
-    {
-      "userId": 7,
-      "id": 70,
-      "authorImg": "https://avatars.githubusercontent.com/u/152313869?v=4",
-      "author": "Lucian Oprica",
-      "body": "sunt repellendus quae\nest asperiores aut deleniti esse accusamus repellendus quia aut\nquia dolorem unde\neum tempora esse dolore"
     },
     {
       "userId": 8,
@@ -530,13 +516,6 @@
       "authorImg": "data:image/jpeg;base64,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",
       "author": "Elon Musk",
       "body": "LMAOOOOOOO haters gon keep hating and i'm still gon make MONEY"
-    },
-    {
-      "userId": 8,
-      "id": 80,
-      "authorImg": "data:image/jpeg;base64,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",
-      "author": "Elon Musk",
-      "body": "The best gift you can give to your kids is learning the things you were never taught and teaching them"
     },
     {
       "userId": 9,
@@ -698,6 +677,62 @@
       "author": "Felice Cesarano",
       "body": "ne period c sntimm :)",
       "id": 104
+    },
+    {
+      "userId": 1,
+      "authorImg": "https://avatars.githubusercontent.com/u/64127976?v=4",
+      "author": "Dario",
+      "body": "Prova pt.1000000",
+      "id": 105
+    },
+    {
+      "userId": 1,
+      "authorImg": "https://avatars.githubusercontent.com/u/64127976?v=4",
+      "author": "Dario",
+      "body": "prova pt.999999999",
+      "id": 107
+    },
+    {
+      "userId": 1,
+      "authorImg": "https://avatars.githubusercontent.com/u/64127976?v=4",
+      "author": "Dario",
+      "body": "prova pt.123456789",
+      "id": 108
+    },
+    {
+      "userId": 1,
+      "authorImg": "https://avatars.githubusercontent.com/u/64127976?v=4",
+      "author": "Dario",
+      "body": "prova pt.9876543210",
+      "id": 109
+    },
+    {
+      "userId": 1,
+      "authorImg": "https://avatars.githubusercontent.com/u/64127976?v=4",
+      "author": "Dario",
+      "body": "prova post 2336",
+      "id": 117
+    },
+    {
+      "userId": 1,
+      "authorImg": "https://avatars.githubusercontent.com/u/64127976?v=4",
+      "author": "Dario",
+      "body": "ciaosss",
+      "id": 118
+    },
+    {
+      "userId": 1,
+      "authorImg": "https://avatars.githubusercontent.com/u/64127976?v=4",
+      "author": "Dario",
+      "body": "new post 23:39",
+      "id": 119
+    },
+    {
+      "userId": 1,
+      "authorImg": "https://avatars.githubusercontent.com/u/64127976?v=4",
+      "author": "Dario",
+      "body": "post ore 23:40",
+      "id": 120
     }
   ]
 }

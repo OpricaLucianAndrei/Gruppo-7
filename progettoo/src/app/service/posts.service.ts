@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { Post } from '../models/post';
 import { CreatePost } from '../models/create-post';
-import { NgForm } from '@angular/forms';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,10 @@ import { map } from 'rxjs';
 export class PostsService {
 
   APIURL = environment.apiURL; 
+  private postsSubject: BehaviorSubject<Post[]> = new BehaviorSubject<Post[]>([]);
+  public posts$: Observable<Post[]> = this.postsSubject.asObservable();
+  private postUpdatedSource = new Subject<void>();
+  postUpdated$ = this.postUpdatedSource.asObservable();
  
    constructor(private http: HttpClient) { }
  
@@ -41,5 +46,9 @@ export class PostsService {
    postPost(post: CreatePost) {
     return this.http.post (`${this.APIURL}posts`, post)
    }
+
+   triggerPostUpdate() {
+    this.postUpdatedSource.next();
+  }
 
 }
