@@ -47,6 +47,9 @@ La pagina sign up, dove l'utente si può registrare al nostro sito in modo da po
 
 
 La login page, qui una volta che l'utente si è registrato può scegliere anche il colore che avrà il tema del sito.
+
+![immagine](https://github.com/Elekekic/Gruppo-7/assets/157897660/57b55900-07e8-4cc0-ae87-5b73bc8857c4)
+
 > L'utente potrà sempre cambiare il suo colore al momento del Login
 
 
@@ -78,9 +81,9 @@ La home page, qui vengono visualizzati tutti i post fatti dagli utenti (sia logg
 
 
 La modale edit post, questa si apre dopo aver cliccato il button edit e permetterà di modificare il post selezionato. 
-> Chi non è admin può solo modificare i suoi post
-> Chi invece è admin può modificare i post di tutti oltre che al suo
-> Stessa cosa avviene con il button per eliminare
+> - Chi non è admin può solo modificare i suoi post
+> - Chi invece è admin può modificare i post di tutti oltre che al suo
+> - Stessa cosa avviene con il button per eliminare
 
 
 <br>
