@@ -127,10 +127,10 @@ Questa rappresenta la schermata di chi non ha il ruolo admin ed ha fatto un semp
 
 | Membri | Github   |
 | :---:   | :---: | 
-| Elena Kekic | <a href="https://github.com/Elekekic"> ![Static Badge](https://img.shields.io/badge/Elena%20Kekic-%23a52121?style=for-the-badge&logo=Github&logoColor=black&labelColor=white) </a>  |
+| Elena Kekic | <a href="https://github.com/Elekekic"> ![Static Badge](https://img.shields.io/badge/Elena%20Kekic-%23e0a633?style=for-the-badge&logo=Github&logoColor=black&labelColor=white) </a>  |
 | Martina Cretella | <a href="https://github.com/azakanaa"> ![Static Badge](https://img.shields.io/badge/Martina%20Cretella-%23EA4AAA?style=for-the-badge&logo=Github&logoColor=black&labelColor=white) </a>   |
 | Lucian Oprica | <a href="https://github.com/OpricaLucianAndrei"> ![Static Badge](https://img.shields.io/badge/Lucian%20Oprica-%237c10d3?style=for-the-badge&logo=Github&logoColor=black&labelColor=white) </a>   |
 | Massimo Berligeri | <a href="https://github.com/Max2002-code"> ![Static Badge](https://img.shields.io/badge/Massimo%20Berlingeri-%23E60012?style=for-the-badge&logo=Github&logoColor=black&labelColor=white) </a>|
-| Felice Cesarano | <a href="https://github.com/felicecesarano"> ![Static Badge](https://img.shields.io/badge/Felice%20Cesarano-%231d874d?style=for-the-badge&logo=Github&logoColor=black&labelColor=white) </a>  |
+| Felice Cesarano | <a href="https://github.com/felicecesarano"> ![Static Badge](https://img.shields.io/badge/Felice%20Cesarano-%233C4211?style=for-the-badge&logo=Github&logoColor=black&labelColor=white) </a>  |
 
 [Torna su!](#development-server)
