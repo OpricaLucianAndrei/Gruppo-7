@@ -6,8 +6,8 @@
 </div>
 
 
-<h2 > Development server </h2>
-#development server
+## Development server
+
 
 - Esegui in terminale : `npm i json-server@0.17.4`,`npm i json-server-auth`, `npm i @auth0/angular-jwt`,  `npm i concurrently`
 - Poi: `npm run fullstack` 
@@ -15,7 +15,7 @@
 - L'applicazione si ricaricherà automaticamente se modifichi qualsiasi cosa dai file sorgenti.
 
 
-<h3> Sono state utilizzati: </h3>
+### Sono state utilizzati:
 
 > ![Static Badge](https://img.shields.io/badge/HTML-%23E34F26?style=for-the-badge&logo=html5&labelColor=black)  ![Static Badge](https://img.shields.io/badge/SCSS-%23CC6699?style=for-the-badge&logo=SASS&labelColor=black)
    ![Static Badge](https://img.shields.io/badge/Bootstrap-%237952B3?style=for-the-badge&logo=Bootstrap&labelColor=black)   ![Static Badge](https://img.shields.io/badge/TypeScript-%233178C6?style=for-the-badge&logo=typescript&labelColor=black)
@@ -120,7 +120,13 @@ La modale users, dove si possono vedere tutti gli utenti loggati
 
 Questa rappresenta la schermata di chi non ha il ruolo admin ed ha fatto un semplice accesso.
 
+## Collaboratori
 
-[Torna su!](#development-server)
-
+| Membri | Github   |
+| :---:   | :---: | 
+| Elena Kekic | <a href="https://github.com/Elekekic"> ![Static Badge](https://img.shields.io/badge/Elena%20Kekic-%23a52121?style=for-the-badge&logo=Github&logoColor=black&labelColor=white) </a>  |
+| Martina Cretella | <a href="https://github.com/azakanaa"> ![Static Badge](https://img.shields.io/badge/Martina%20Cretella-%23EA4AAA?style=for-the-badge&logo=Github&logoColor=black&labelColor=white) </a>   |
+| Lucian Oprica | <a href="https://github.com/OpricaLucianAndrei"> ![Static Badge](https://img.shields.io/badge/Lucian%20Oprica-%237c10d3?style=for-the-badge&logo=Github&logoColor=black&labelColor=white) </a>   |
+| Massimo Berligeri | <a href="https://github.com/Max2002-code"> ![Static Badge](https://img.shields.io/badge/Massimo%20Berlingeri-%23E60012?style=for-the-badge&logo=Github&logoColor=black&labelColor=white) </a>|
+| Felice Cesarano | <a href="https://github.com/felicecesarano"> ![Static Badge](https://img.shields.io/badge/Felice%20Cesarano-%231d874d?style=for-the-badge&logo=Github&logoColor=black&labelColor=white) </a>  |
 
